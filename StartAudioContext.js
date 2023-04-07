@@ -47,6 +47,9 @@
 	 * tap ended listener
 	 */
 	TapListener.prototype._ended = function(context){
+		if (context.state !== 'running') {
+			context.resume()
+		}
 		if (!this._dragged){
 			startContext(context)
 		}
